@@ -3,7 +3,7 @@
 <p *ngFor="let element of elemento">{{element.id}}</p-->
 
 
-<div class="container">
+<div class="container mb-4">
     <div class="card list-car">
         <h4 class="card-header" style="text-align: center;">Lista de Elementos Quimicos </h4>
         <div class="card-body">
@@ -26,15 +26,55 @@
                         <td>{{car.symbol}}</td>
                         <td>
                             <button type="button" class="btn btn-warning btn-sm" style="margin: 15px;">Editar</button>
-                            <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteCar(this.car)" >Deletar</button>
+                            <button type="button" class="btn btn-danger btn-sm ml-1"
+                                (click)="deleteCar(car)">Deletar</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-</div>
 
+
+
+    <div class="card add-car mb-4">
+        <h5 class="card-header">Adicionar/Atualizar Elementos</h5>
+        <div class="card-body">
+            <form id="add-form" (ngSubmit)="f.form.valid && saveCar(f)" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="model">Nome</label>
+                    <input type="text" [(ngModel)]="elementoNovo.nome" id="nome" name="nome" #model="ngModel" required
+                        class="form-control" [ngClass]="{ 'is-invalid': f.submitted && model.invalid }"
+                        placeholder="Digite o nome">
+                    <div *ngIf="f.submitted && model.invalid" class="invalid-feedback">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="color">Peso</label>
+                    <input type="text" [(ngModel)]="elementoNovo.weight" id="weight" name="weight" #color="ngModel"
+                        required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && color.invalid }"
+                        placeholder="Digite o Peso">
+                    
+                </div>
+                <div class="form-group">
+                    <label for="price">Simbolo</label>
+                    <input type="text" [(ngModel)]="elementoNovo.weight" id="symbol" name="symbol" #price="ngModel"
+                        required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }"
+                        placeholder="Digite o Simbolo">
+                    
+                </div>
+                <button type="submit" class="btn btn-primary btn-add-car mt-2">Salvar</button>
+                <button type="reset" class="btn btn-secondary btn-add-car mt-2" (click)="cleanForm(f)">Cancelar</button>
+            </form>
+        </div>
+    </div>
+    <br>
+
+
+
+
+</div>
 
 
 

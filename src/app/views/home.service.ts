@@ -40,14 +40,20 @@ export class HomeService {
 
   deleteCar(elemento: Elemen){
     return this.httpClient.delete<Elemen>(this.uri + '/' + elemento.id,this.httpOptions)
-    
-  
-     
+
+  }
+
+  // salva um carro
+  saveCar(elemento: Elemen): Observable<Elemen> {
+    return this.httpClient.post<Elemen>(this.uri, JSON.stringify(elemento), this.httpOptions)
+      
+  }
+  // utualiza um carro
+  updateCar(elemento: Elemen): Observable<Elemen> {
+    return this.httpClient.put<Elemen>(this.uri + '/' + elemento.id, JSON.stringify(elemento), this.httpOptions)
       
   }
 
-
-  
 
 }
 

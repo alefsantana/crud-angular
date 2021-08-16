@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { ElementDialogComponent } from 'src/app/shared/element-dialog/element-dialog.component';
 
 import { HomeService } from '../home.service';
+import { NgForm } from '@angular/forms';
 
 
 export interface PeriodicElement {
@@ -74,14 +75,36 @@ export class HomeComponent implements OnInit {
   
   deleteCar(elementoNovo: Elemen) {
     console.log(elementoNovo)
-    this.elementoService.deleteElemento(elementoNovo).subscribe(
+    this.elementoService.deleteCar(elementoNovo).subscribe(
       () => {
        this.getElementos();
-       this.load();
+       window.location.reload();
        
       
    
     });
+  }
+
+  // defini se um carro será criado ou atualizado
+  saveCar(form: NgForm) {
+    if (this.elementoNovo.id !== undefined) {
+      this.elementoService.updateCar(this.elementoNovo).subscribe(() => {
+        this.cleanForm(form);
+        
+      });
+    } else {
+      this.elementoService.saveCar(this.elementoNovo).subscribe(() => {
+        this.cleanForm(form);
+      });
+    }
+    window.location.reload();
+  }
+
+  // limpa o formulario
+  cleanForm(form: NgForm) {
+    this.getElementos();
+    form.resetForm();
+    this.elementoNovo = {} as Elemen;
   }
 
   
