@@ -76,11 +76,15 @@ export class HomeComponent implements OnInit {
     console.log(elementoNovo)
     this.elementoService.deleteElemento(elementoNovo).subscribe(
       () => {
-       this.getElementos()
+       this.getElementos();
+       this.load();
+       
       
    
     });
   }
+
+  
 
 
 
@@ -89,8 +93,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.consultaElemento();
+    this.load();
+
+    
 
 
+  }
+
+  load() {
+    //Session storage salva os dados como string
+    (sessionStorage.refresh == 'true' || !sessionStorage.refresh) && location.reload();
+    sessionStorage.refresh = false;
   }
 
 
