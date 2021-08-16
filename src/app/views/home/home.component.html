@@ -1,0 +1,66 @@
+<!-- p> {{ outroEletento?.nome}}</p>
+
+<p *ngFor="let element of elemento">{{element.id}}</p-->
+
+
+<div class="container">
+    <div class="card list-car">
+        <h4 class="card-header" style="text-align: center;">Lista de Elementos Quimicos </h4>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead" style="text-align: center;">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Peso</th>
+                        <th scope="col">Simbolo</th>
+                        <th scope="col">Ações</th>
+
+                    </tr>
+                </thead>
+                <tbody claa="table" style="text-align: center;">
+                    <tr *ngFor="let car of elemento">
+                        <td>{{car.id}}</td>
+                        <td>{{car.nome}}</td>
+                        <td>{{car.weight}}</td>
+                        <td>{{car.symbol}}</td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm" style="margin: 15px;">Editar</button>
+                            <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteCar(elementoNovo)">Deletar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- table>
+    <tr>
+        <th *ngFor=" let column of headers">
+            {{ column }}
+        </th>
+    </tr>
+
+    <tr *ngFor="let row of rows">
+        <td *ngFor="let column of headers">
+            {{ row[column]}}
+
+        </td>
+    </tr>
+</table>
+
+
+<
+<ul class="heroes">
+    <li *ngFor="let hero of elemento">
+    
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+   
+    
+
+    </li>
+  </ul> -->

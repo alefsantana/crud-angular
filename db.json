@@ -1,0 +1,28 @@
+{
+  "elementos": [
+    {
+      "id": 1,
+      "nome": "Hydrogen2",
+      "weight": 1.0079,
+      "symbol": "h"
+    },
+    {
+      "id": 2,
+      "nome": "Gas",
+      "weight": 1.0079,
+      "symbol": "h"
+    },
+    {
+      "id": 3,
+      "nome": "Gas",
+      "weight": 1.0079,
+      "symbol": "h"
+    },
+    {
+      "id": 4,
+      "nome": "Gas",
+      "weight": 1.0079,
+      "symbol": "h"
+    }
+  ]
+}

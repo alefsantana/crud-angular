@@ -1,0 +1,26 @@
+table {
+    width: 100%;
+  }
+
+
+.container {
+  margin-top: 30px;
+}
+
+.add-car {
+  margin-bottom: 30px;
+}
+
+.list-car {
+  margin-bottom: 50px;
+}
+
+.btn-add-car {
+  margin-right: 10px;
+}
+
+.button {
+  margin: 20px;
+  padding: 20px;
+ }
+
